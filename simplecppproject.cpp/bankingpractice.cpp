@@ -8,6 +8,7 @@ double withdrawMoney (double balance);
 double depoMoney (double balance);
 
 int main(){
+    cout << "Hello" << endl;
     char choice;
     double balance=0;
     do{

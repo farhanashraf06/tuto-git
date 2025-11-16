@@ -5,11 +5,13 @@ using namespace std;
 
 void checkBalance (double balance);
 double withdrawMoney (double balance);
+double depoMoney (double balance);
 
-int main(){;
-    cout << "----- Banking Program -----" << endl;
+int main(){
     char choice;
     double balance=0;
+    do{
+    cout << "----- Banking Program -----" << endl;
     cout << "----- Welcome to FarBank -----" << endl;
     cout <<  "What would you like to do? " << endl << "a. Check Balance" << endl <<"b. Withdraw Money " << endl;
     cout << "c. Deposit Money" << endl << "d. Exit" << endl;
@@ -20,13 +22,24 @@ int main(){;
     switch (choice){
         case 'a':
             checkBalance (balance);
+            break;
         case 'b':
-            withdrawMoney (balance);
+            balance -= withdrawMoney (balance);
             checkBalance (balance);
+            break;
         case 'c':
+            balance += depoMoney (balance);
+            checkBalance (balance);
+            break;
         case 'd':
+            cout << " Thank you for visiting us! " << endl;
+            return 0;
+            break;
+        default :
+            cout << "Invlaid choice! " << endl;
     }
-    return 0;
+    
+    }while ( choice != 'd');
 }
 void checkBalance (double balance){
     cout << "Your current balance is : RM " << setprecision(2) << fixed << balance << endl; 
@@ -35,10 +48,24 @@ double withdrawMoney (double balance){
     double amount;
     cout << "How much would you like to withdraw? : RM " << endl;
     cin >> amount;
-    if (amount < balance ){
+    if (amount > balance ){
         cout << "Sorry , Insufficient Balance. " << endl;
     }
+    else if (amount < 0) {
+        cout << "Sorry , The amount you entered is invalid. " << endl;
+    }
     else {
-        balance -= amount;
+        return amount;
+    }
+}
+double depoMoney (double balance){
+    double amount;
+    cout << "How much would you like to deposit? : RM " << endl;
+    cin >> amount;
+    if (amount < 0){
+        cout << "Sorry, The amount you entered is invalid. " << endl;
+    }
+    else {
+        return amount;
     }
 }

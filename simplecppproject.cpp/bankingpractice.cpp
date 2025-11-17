@@ -8,7 +8,6 @@ double withdrawMoney (double balance);
 double depoMoney (double balance);
 
 int main(){
-    cout << "Hello" << endl;
     char choice;
     double balance=0;
     do{
@@ -42,31 +41,46 @@ int main(){
     
     }while ( choice != 'd');
 }
+
 void checkBalance (double balance){
     cout << "Your current balance is : RM " << setprecision(2) << fixed << balance << endl; 
 }
+
 double withdrawMoney (double balance){
     double amount;
     cout << "How much would you like to withdraw? : RM " << endl;
     cin >> amount;
+    if (cin.fail()){
+        cin.clear();
+        cin.ignore (10000 ,'\n');
+        cout << "Invalid Input!" << endl;
+        return 0;
+    }
     if (amount > balance ){
         cout << "Sorry , Insufficient Balance. " << endl;
+        return 0;
     }
-    else if (amount < 0) {
-        cout << "Sorry , The amount you entered is invalid. " << endl;
+    if (amount < 0) {
+        cout << "Sorry , The amout cannot be negative. " << endl;
+        return 0;
     }
-    else {
+
         return amount;
-    }
 }
+
 double depoMoney (double balance){
     double amount;
     cout << "How much would you like to deposit? : RM " << endl;
     cin >> amount;
+     if (cin.fail()){
+        cin.clear();
+        cin.ignore (10000 ,'\n');
+        cout << "Invalid Input!" << endl;
+        return 0;
+    }
     if (amount < 0){
-        cout << "Sorry, The amount you entered is invalid. " << endl;
+        cout << "Sorry, The amount cannot be negative. " << endl;
+        return 0;
     }
-    else {
         return amount;
-    }
 }

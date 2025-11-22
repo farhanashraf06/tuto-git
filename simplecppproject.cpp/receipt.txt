@@ -1,0 +1,12 @@
+-----IT UTM CONSULTANCY COURSE - OFFICIAL RECEIPT -----
+Customer name : 
+Course  : AutoCAD Basic
+Participants : 44
+Total Fees : RM 64680
+Discount : RM 0
+Fees after discount : RM 64680
+Subtotal Fee: RM 64680
+Tax (6%): RM 38808
+Grand Total Fee: RM 103488
+Total Participants: 44
+Amount per Person: RM 2352
